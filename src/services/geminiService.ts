@@ -4,7 +4,7 @@ import { NutritionData } from "../types";
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
 
 export const analyzeNutritionLabel = async (base64Image: string): Promise<NutritionData> => {
-  const model = "gemini-flash-latest"; // Using flash for speed/vision capability
+  const model = "gemini-flash-latest"; // Using the stable flash latest alias for maximum production reliability
 
   const response = await ai.models.generateContent({
     model: model,
@@ -17,17 +17,22 @@ export const analyzeNutritionLabel = async (base64Image: string): Promise<Nutrit
           },
         },
         {
-          text: `Analyze this nutrition label and ingredient list. Transform it into a structured report following the Nutrizee brand voice: helpful, intelligent, modern, and educational.
+          text: `You are a high-precision nutrition label analysis engine. Your task is to extract every detail from the provided image, paying special attention to "super tiny" text, dense ingredient lists, and small numeric values in nutrition tables.
+          
+          Meticulously scan the image for:
+          1. Fine print at the bottom or sides of the packaging.
+          2. Trace allergens and micro-ingredients often listed in the smallest font.
+          3. Exact numeric values and units, even if blurry or extremely small.
+          4. Deceptive serving size information printed in small text.
+          
+          Instructions:
+          - Perform a mental "high-resolution scan" of the entire image.
+          - If a text block is tiny, use contextual clues from the surrounding label to resolve it with 100% accuracy.
+          - Do not skip any ingredient, even if it's listed in a long, dense block.
+          - Transform the data into a structured report in the Nutrizee brand voice: helpful, intelligent, modern, and educational.
           
           Provide the output strictly in the JSON schema requested.
-          If data is missing or unreadable, mark as "Unknown".
-          Focus on:
-          1. Accurately identifying the product name (e.g., "Full Cream Milk", "Dark Chocolate Bar").
-          2. Accurate extraction of nutrition values.
-          3. Explaining ingredients in beginner-friendly terms.
-          3. Warning about allergens.
-          4. Assessing if serving sizes are deceptive.
-          5. Giving an overall health score (0-100) and color classification (Green/Yellow/Red).`,
+          If data is absolutely unreadable after maximum effort, mark as "Unknown".`,
         },
       ],
     },

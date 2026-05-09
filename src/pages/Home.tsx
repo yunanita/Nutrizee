@@ -52,7 +52,13 @@ export const Home = ({ initialResult }: HomeProps) => {
       localStorage.setItem('nutrizee_history', JSON.stringify([historyItem, ...existingHistory].slice(0, 20)));
 
     } catch (err: any) {
-      setError("We couldn't analyze this image. Please ensure the label is clearly visible and try again.");
+      console.error("ANALYSIS_ERROR:", err);
+      // Log more details if available
+      if (err.message) console.error("ERROR_MESSAGE:", err.message);
+      
+      setError(language === 'en' 
+        ? "We couldn't analyze this image. Please ensure the label is clearly visible and try again."
+        : "Kami tidak dapat menganalisis gambar ini. Pastikan label terlihat jelas dan coba lagi.");
     } finally {
       setIsAnalyzing(false);
     }

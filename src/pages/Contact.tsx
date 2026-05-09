@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Instagram, Github, Linkedin, Mail, Heart, Code2, Rocket, Users } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import noviaPhoto from '../assets/images/novia-profile.jpg';
 
 export const Contact = () => {
   const { t } = useLanguage();
@@ -26,14 +27,10 @@ export const Contact = () => {
               className="w-64 h-64 md:w-80 md:h-80 rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl relative bg-brand-cream"
             >
               <img 
-                src="/src/assets/images/regenerated_image_1778327831550.jpg" 
+                src={noviaPhoto} 
                 alt="Novia Yunanita" 
                 className="w-full h-full object-cover" 
                 referrerPolicy="no-referrer"
-                onError={(e) => {
-                  e.currentTarget.onerror = null;
-                  e.currentTarget.src = 'https://api.dicebear.com/7.x/avataaars/svg?seed=Novia';
-                }}
               />
             </motion.div>
           </div>

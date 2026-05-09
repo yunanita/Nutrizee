@@ -23,7 +23,7 @@ export const Privacy = () => {
       {
         icon: Shield,
         title: "Data Integrity",
-        text: "You have full control over your data. You can clear your scan history at any time from the Insights dashboard."
+        text: "You have full control over your data. You can clear your scan history at any time from the Wellness Trends dashboard."
       }
     ]
   } : {
@@ -43,7 +43,7 @@ export const Privacy = () => {
       {
         icon: Shield,
         title: "Integritas Data",
-        text: "Anda memiliki kontrol penuh atas data Anda. Anda dapat menghapus riwayat pemindaian kapan saja dari dasbor Wawasan."
+        text: "Anda memiliki kontrol penuh atas data Anda. Anda dapat menghapus riwayat pemindaian kapan saja dari dasbor Tren Kesejahteraan."
       }
     ]
   };

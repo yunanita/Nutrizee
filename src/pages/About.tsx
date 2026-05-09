@@ -18,6 +18,8 @@ import { cn } from '../lib/utils';
 import { useLanguage } from '../contexts/LanguageContext';
 import { ProfessorChibi } from '../components/ProfessorChibi';
 
+import noviaPhoto from '../assets/images/novia-profile.jpg';
+
 export const About = () => {
   const { t } = useLanguage();
 
@@ -70,6 +72,43 @@ export const About = () => {
              <h3 className="font-extrabold text-brand-coffee">{t('wellnessFirst')}</h3>
              <p className="text-sm font-medium text-brand-coffee/50">{t('wellnessFirstDesc')}</p>
            </div>
+        </div>
+      </section>
+
+      {/* Meet the Creator Section */}
+      <section className="max-w-5xl mx-auto py-12">
+        <div className="glass-card rounded-[3.5rem] p-8 md:p-16 relative overflow-hidden bg-brand-honey/5">
+          <div className="flex flex-col lg:flex-row gap-12 items-center relative z-10">
+            <div className="shrink-0">
+              <motion.div 
+                whileHover={{ scale: 1.05, rotate: -2 }}
+                className="w-48 h-48 md:w-64 md:h-64 rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl relative bg-brand-cream"
+              >
+                <img 
+                  src={noviaPhoto} 
+                  alt="Novia Yunanita" 
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+              </motion.div>
+            </div>
+
+            <div className="flex-1 space-y-6 text-center lg:text-left">
+              <div className="space-y-2">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-honey/10 text-brand-honey border border-brand-honey/20">
+                   <Rocket size={14} />
+                   <span className="text-[10px] font-black uppercase tracking-widest">{t('creatorRole')}</span>
+                </div>
+                <h2 className="text-4xl font-black text-brand-coffee">Novia Yunanita</h2>
+                <p className="text-lg text-brand-caramel font-bold italic">
+                  {t('creatorBio')}
+                </p>
+              </div>
+              <p className="text-brand-coffee/60 font-medium leading-relaxed max-w-2xl">
+                {t('creatorGoalDetail')}
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
