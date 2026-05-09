@@ -1,0 +1,11 @@
+{
+  "name": "Nutrizee",
+  "description": "AI-powered nutrition label intelligence platform that transforms complex nutrition labels into structured, human-friendly health insights.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "vision",
+    "data_analysis"
+  ]
+}
