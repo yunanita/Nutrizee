@@ -36,6 +36,14 @@ export const translations: Translations = {
   instantAnalysisDesc: { en: 'Next-gen multimodal AI scans labels in seconds, not minutes.', id: 'AI multimodal generasi berikutnya memindai label dalam hitungan detik, bukan menit.' },
   wellnessFirst: { en: 'Wellness First', id: 'Utamakan Kesehatan' },
   wellnessFirstDesc: { en: 'Designed for health-conscious souls who care about what they consume.', id: 'Dirancang untuk jiwa yang sadar kesehatan yang peduli dengan apa yang mereka konsumsi.' },
+  appDescription: { 
+    en: 'Nutrizee is an AI-powered nutrition label intelligence platform designed to transform confusing food packaging information into structured, understandable, and actionable health insights for everyday consumers. The application is not a chatbot and must never behave like one. Instead, Nutrizee functions as a specialized AI analysis engine focused on extracting, interpreting, and explaining nutrition labels and ingredient compositions from packaged food products.', 
+    id: 'Nutrizee adalah platform kecerdasan label nutrisi berbasis AI yang dirancang untuk mengubah informasi kemasan makanan yang membingungkan menjadi wawasan kesehatan yang terstruktur, mudah dipahami, dan dapat ditindaklanjuti bagi konsumen sehari-hari. Aplikasi ini bukan chatbot dan tidak boleh berperilaku seperti itu. Sebaliknya, Nutrizee berfungsi sebagai mesin analisis AI khusus yang berfokus pada ekstraksi, interpretasi, dan penjelasan label nutrisi serta komposisi bahan dari produk makanan kemasan.' 
+  },
+  retakeTitle: { en: 'Unclear Image Detected', id: 'Gambar Kurang Jelas Terdeteksi' },
+  retakeMessage: { en: "We couldn't read the label clearly. Please retake the photo with better lighting and focus for accurate AI analysis.", id: 'Kami tidak dapat membaca label dengan jelas. Silakan ambil ulang foto dengan pencahayaan dan fokus yang lebih baik untuk analisis AI yang akurat.' },
+  retakeButton: { en: 'Retake Photo', id: 'Ambil Ulang Foto' },
+  platformOverview: { en: 'Platform Overview', id: 'Ikhtisar Platform' },
   historyTitle: { en: 'Wellness Trends', id: 'Tren Kesejahteraan' },
   insightsTitle: { en: 'Nutrizee Insight', id: 'Wawasan Nutrizee' },
   historySubtitle: { en: 'Review your scan patterns and track the big picture of your nutritional choices.', id: 'Tinjau pola pemindaian Anda dan lihat gambaran besar dari pilihan nutrisi Anda.' },

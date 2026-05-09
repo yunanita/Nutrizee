@@ -228,13 +228,13 @@ export const Layout = ({
             </div>
           </div>
           <div className="flex flex-wrap justify-center gap-8 text-[10px] font-black uppercase tracking-widest text-brand-coffee/60">
-            <button onClick={() => setActiveTab('privacy')} className="hover:text-brand-honey transition-colors flex items-center gap-1">
+            <button onClick={() => setActiveTab('privacy')} className="hover:text-brand-honey transition-colors flex items-center gap-1 text-[12px]">
               <Shield size={12} /> {t('privacy')}
             </button>
-            <button onClick={() => setActiveTab('terms')} className="hover:text-brand-honey transition-colors flex items-center gap-1">
+            <button onClick={() => setActiveTab('terms')} className="hover:text-brand-honey transition-colors flex items-center gap-1 text-[12px]">
               <FileText size={12} /> {t('terms')}
             </button>
-            <button onClick={() => setActiveTab('contact')} className="hover:text-brand-honey transition-colors flex items-center gap-1">
+            <button onClick={() => setActiveTab('contact')} className="hover:text-brand-honey transition-colors flex items-center gap-1 text-[12px]">
               <Phone size={12} /> {t('contact')}
             </button>
           </div>

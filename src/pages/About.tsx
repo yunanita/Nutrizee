@@ -18,8 +18,6 @@ import { cn } from '../lib/utils';
 import { useLanguage } from '../contexts/LanguageContext';
 import { ProfessorChibi } from '../components/ProfessorChibi';
 
-import noviaPhoto from '../assets/images/novia-profile.jpg';
-
 export const About = () => {
   const { t } = useLanguage();
 
@@ -50,6 +48,31 @@ export const About = () => {
           {t('appMissionDesc')}
         </p>
 
+        {/* Platform Overview */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2 }}
+          className="mt-16 glass-card rounded-[3.5rem] p-8 md:p-12 relative overflow-hidden bg-brand-honey/5 border-2 border-brand-honey/10 text-left"
+        >
+          <div className="flex flex-col md:flex-row gap-8 items-center relative z-10">
+            <div className="shrink-0">
+              <div className="w-20 h-20 rounded-2xl bg-brand-honey flex items-center justify-center text-white shadow-lg">
+                <BrainCircuit size={40} />
+              </div>
+            </div>
+            <div className="space-y-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-honey/20 text-brand-honey border border-brand-honey/30">
+                 <Sparkles size={12} />
+                 <span className="text-[10px] font-black uppercase tracking-widest">{t('platformOverview')}</span>
+              </div>
+              <p className="text-lg md:text-xl text-brand-coffee font-bold leading-relaxed">
+                {t('appDescription')}
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
         <div className="grid md:grid-cols-3 gap-8 pt-12">
            <div className="space-y-4">
              <div className="w-16 h-16 rounded-3xl bg-brand-honey/10 mx-auto flex items-center justify-center text-brand-honey">
@@ -72,43 +95,6 @@ export const About = () => {
              <h3 className="font-extrabold text-brand-coffee">{t('wellnessFirst')}</h3>
              <p className="text-sm font-medium text-brand-coffee/50">{t('wellnessFirstDesc')}</p>
            </div>
-        </div>
-      </section>
-
-      {/* Meet the Creator Section */}
-      <section className="max-w-5xl mx-auto py-12">
-        <div className="glass-card rounded-[3.5rem] p-8 md:p-16 relative overflow-hidden bg-brand-honey/5">
-          <div className="flex flex-col lg:flex-row gap-12 items-center relative z-10">
-            <div className="shrink-0">
-              <motion.div 
-                whileHover={{ scale: 1.05, rotate: -2 }}
-                className="w-48 h-48 md:w-64 md:h-64 rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl relative bg-brand-cream"
-              >
-                <img 
-                  src={noviaPhoto} 
-                  alt="Novia Yunanita" 
-                  className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
-                />
-              </motion.div>
-            </div>
-
-            <div className="flex-1 space-y-6 text-center lg:text-left">
-              <div className="space-y-2">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-honey/10 text-brand-honey border border-brand-honey/20">
-                   <Rocket size={14} />
-                   <span className="text-[10px] font-black uppercase tracking-widest">{t('creatorRole')}</span>
-                </div>
-                <h2 className="text-4xl font-black text-brand-coffee">Novia Yunanita</h2>
-                <p className="text-lg text-brand-caramel font-bold italic">
-                  {t('creatorBio')}
-                </p>
-              </div>
-              <p className="text-brand-coffee/60 font-medium leading-relaxed max-w-2xl">
-                {t('creatorGoalDetail')}
-              </p>
-            </div>
-          </div>
         </div>
       </section>
 

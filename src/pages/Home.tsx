@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Apple, Sparkles, BrainCircuit, History } from 'lucide-react';
+import { Apple, Sparkles, BrainCircuit, History, Camera, X, AlertCircle } from 'lucide-react';
 import { UploadZone } from '../components/UploadZone';
 import { NutritionReport } from '../components/NutritionReport';
 import { NutritionData, ScanHistory } from '../types';
@@ -15,6 +15,7 @@ export const Home = ({ initialResult }: HomeProps) => {
   const [isAnalyzing, setIsAnalyzing] = React.useState(false);
   const [result, setResult] = React.useState<NutritionData | null>(initialResult || null);
   const [error, setError] = React.useState<string | null>(null);
+  const [showRetakeModal, setShowRetakeModal] = React.useState(false);
 
   React.useEffect(() => {
     if (initialResult) {
@@ -32,9 +33,9 @@ export const Home = ({ initialResult }: HomeProps) => {
       const data = await analyzeNutritionLabel(image);
       setResult(data);
       
-      // Play aesthetic success sound
-      const audio = new Audio('https://cdn.pixabay.com/audio/2022/03/15/audio_731427181c.mp3'); // A better bubble/ding sound
-      audio.volume = 0.3;
+      // Play cute aesthetic success sound
+      const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3'); 
+      audio.volume = 0.4;
       audio.play().catch(() => {}); // Silent fail
       
       // Save to history
@@ -56,6 +57,7 @@ export const Home = ({ initialResult }: HomeProps) => {
       // Log more details if available
       if (err.message) console.error("ERROR_MESSAGE:", err.message);
       
+      setShowRetakeModal(true);
       setError(language === 'en' 
         ? "We couldn't analyze this image. Please ensure the label is clearly visible and try again."
         : "Kami tidak dapat menganalisis gambar ini. Pastikan label terlihat jelas dan coba lagi.");
@@ -66,6 +68,53 @@ export const Home = ({ initialResult }: HomeProps) => {
 
   return (
     <div className="py-8 md:py-12 space-y-20 lg:space-y-32">
+      {/* Retake Photo Modal */}
+      {showRetakeModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6 bg-brand-coffee/40 backdrop-blur-sm">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            className="bg-white rounded-[3rem] p-8 md:p-12 max-w-xl w-full shadow-2xl relative overflow-hidden"
+          >
+            {/* Background Pattern */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-brand-honey/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl" />
+            
+            <div className="relative z-10 text-center space-y-6">
+              <div className="w-20 h-20 bg-brand-caramel/10 text-brand-caramel rounded-3xl flex items-center justify-center mx-auto mb-4">
+                <AlertCircle size={40} />
+              </div>
+              
+              <div className="space-y-4">
+                <h3 className="text-3xl font-black text-brand-coffee">{t('retakeTitle')}</h3>
+                <p className="text-lg text-brand-coffee/60 font-medium leading-relaxed">
+                  {t('retakeMessage')}
+                </p>
+              </div>
+              
+              <div className="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
+                <button 
+                  onClick={() => setShowRetakeModal(false)}
+                  className="px-8 py-4 rounded-full bg-brand-coffee text-white font-black uppercase tracking-widest hover:bg-brand-coffee/90 transition-all flex items-center justify-center gap-2 group"
+                >
+                  <X size={18} className="group-hover:rotate-90 transition-transform" />
+                  <span>{language === 'en' ? 'Close' : 'Tutup'}</span>
+                </button>
+                <button 
+                  onClick={() => {
+                    setShowRetakeModal(false);
+                    // Focus back to upload zone if possible, or just let user click again
+                  }}
+                  className="px-8 py-4 rounded-full bg-brand-honey text-white font-black uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-lg shadow-brand-honey/20 flex items-center justify-center gap-2"
+                >
+                  <Camera size={18} />
+                  <span>{t('retakeButton')}</span>
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      )}
+
       {/* Hero */}
       {!result ? (
         <>
