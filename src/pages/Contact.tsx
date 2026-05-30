@@ -51,7 +51,7 @@ export const Contact = () => {
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-              <a href="https://instagram.com/yunannv" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 p-4 rounded-2xl bg-white border border-brand-honey/10 hover:bg-brand-honey hover:text-white transition-all group">
+              <a href="https://instagram.com/yunanitav" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 p-4 rounded-2xl bg-white border border-brand-honey/10 hover:bg-brand-honey hover:text-white transition-all group">
                 <Instagram size={20} className="text-brand-honey group-hover:text-white" />
                 <span className="font-bold text-xs uppercase tracking-widest">Instagram</span>
               </a>
